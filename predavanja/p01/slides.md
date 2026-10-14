@@ -10,7 +10,7 @@ fonts:
   sans: Lato
   local: Lato
 ---
-<div class="anm is-cover fishnet-cover"><main class="anm-main"><div class="cover-inner"><div class="cover-title">ARHITEKTURE<br/>NEURONSKIH MREŽA</div><div class="cover-rule"></div><div class="cover-sub">Predavanje 01 <span>·</span> Uvod i ponavljanje</div></div></main><div class="slide-n">01</div></div>
+<div class="anm is-cover"><main class="anm-main"><div class="cover-inner"><div class="cover-title">ARHITEKTURE<br/>NEURONSKIH MREŽA</div><div class="cover-rule"></div><div class="cover-sub">Predavanje 01 <span>·</span> Uvod i ponavljanje</div></div></main><div class="slide-n">01</div></div>
 ---
 layout: default
 ---

@@ -110,5 +110,3 @@
 /* Dodatna čitljivost za engleske nazive i demo (980 px Slidev platno). */
 .anm .term-en{font-size:21px;font-weight:600;line-height:1.15;color:#bed6e0;margin:-9px 0 16px;}
 .anm .demo-main{padding-top:12px;justify-content:center;gap:0;height:calc(100% - 102px);}
-.anm.fishnet-cover::before{content:"";position:absolute;inset:0;background:url('/assets/fishing-net.svg') 76% 48% / 89% 108% no-repeat;opacity:.55;pointer-events:none;}
-.anm.fishnet-cover .cover-inner{position:relative;z-index:1;}
