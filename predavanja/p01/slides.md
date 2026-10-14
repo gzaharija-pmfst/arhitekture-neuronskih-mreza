@@ -1,0 +1,240 @@
+---
+theme: default
+title: Arhitekture neuronskih mreža — Predavanje 01
+info: P01, pregled i nužne revizije, 15. listopada 2026.
+aspectRatio: 16/9
+canvasWidth: 980
+colorSchema: dark
+transition: fade
+fonts:
+  sans: Lato
+  local: Lato
+---
+<div class="anm is-cover"><main class="anm-main"><div class="cover-inner"><div class="cover-title">ARHITEKTURE<br/>NEURONSKIH MREŽA</div><div class="cover-rule"></div><div class="cover-sub">Predavanje 01 <span>·</span> Uvod i ponavljanje</div></div></main><div class="slide-n">01</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Strojno učenje — ponavljanje</h1><div class="redline"></div></header><main class="anm-main"><div class="quote">„Računalima dati mogućnost učenja bez eksplicitnog programiranja svakog pravila.”</div><div class="source-credit">Parafraza klasične definicije Arthura Samuela</div><div class="flowline"><div class="flow-node">Podaci</div><div class="flow-arrow">→</div><div class="flow-node">Učenje modela</div><div class="flow-arrow">→</div><div class="flow-node">Predviđanje</div></div><div class="support">Iz podataka učimo obrasce koji pomažu donositi predviđanja na novim primjerima.</div></main><div class="slide-n">02</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Zašto strojno učenje?</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Kada pomaže?</div><ul class="bullets"><li>Teško je napisati potpuna pravila</li><li>Podaci sadrže korisne obrasce</li><li>Želimo generalizaciju na nove slučajeve</li></ul></div><div class="panel "><div class="panel-head">Što nije zajamčeno?</div><ul class="bullets"><li>Automatski veća točnost</li><li>Brže izvođenje u svim situacijama</li><li>Dobar rezultat bez dobrih podataka</li></ul></div></div><div class="quote">Svrha nije samo zapamtiti uzorke, nego dobro raditi i na neviđenim podacima.</div></main><div class="slide-n">03</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Duboko učenje</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Podskup strojnog učenja</div><ul class="bullets"><li>Više uzastopnih reprezentacijskih slojeva</li><li>Automatsko učenje značajki iz podataka</li><li>Velik broj parametara, ali broj nije definicija</li></ul></div><div class="panel "><div class="panel-head">Primjene</div><div class="application-list"><span>👁️  Računalni vid</span><span>🗣️  Govor</span><span>📝  Obrada jezika</span><span>🎨  Generiranje sadržaja</span></div></div></div></main><div class="slide-n">04</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Duboko učenje u praksi</h1><div class="redline"></div></header><main class="anm-main"><div class="panel wide"><div class="visual-tiles"><div class="sample-tile"><div class="tile-art visual-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><b>Generiranje varijanti</b><span>Slike i dizajn</span></div><div class="sample-tile"><div class="tile-art pseudo-image">A <span>→</span> B</div><b>Transformacije</b><span>Stil, rekonstrukcija</span></div><div class="sample-tile"><div class="tile-art tile-classify">✓<small>?</small></div><b>Prepoznavanje</b><span>Objekti i obrasci</span></div></div></div></main><div class="slide-n">05</div></div>
+
+<!--
+U izvornom predavanju kao vizualni primjeri korišteni su generiranje proizvoda i sintetičkih lica. Ovdje istakni tri vrste primjene: generiranje novih uzoraka, transformacija postojećih podataka i prepoznavanje obrazaca. Na sljedećem slajdu slijedi primjer generiranja lica.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Primjer generiranja sintetičkih lica</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Generativni model</div><ul class="bullets"><li>Uči statističke obrasce iz podataka</li><li>Iz naučene distribucije stvara nove primjere</li><li>Generirani rezultat nije nužno kopija trening primjera</li></ul></div><div class="panel "><div class="panel-head">Primjer</div><img class="face-example" src="/assets/face-original.webp" alt="Primjer sintetičkoga lica"/><div class="support centered">Možemo li iz slike znati je li osoba stvarna?</div></div></div></main><div class="slide-n">06</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Matematički koncepti</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Linearna algebra</div><ul class="bullets"><li>Skalar, vektor, matrica</li><li>Tenzor i oblik podataka</li><li>Linearne transformacije</li><li>Prostori i dimenzije</li></ul></div><div class="panel "><div class="panel-head">Vjerojatnost i statistika</div><ul class="bullets"><li>Distribucije i očekivanje</li><li>Varijanca i standardna devijacija</li><li>Korelacija</li><li>Procjena i nesigurnost</li></ul></div></div><div class="support">Ovo su matematički koncepti na koje ćemo se oslanjati tijekom kolegija.</div></main><div class="slide-n">07</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Tri česta pristupa učenju</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g3"><div class="panel "><div class="panel-head">Nadzirano</div><div class="term-en">supervised learning</div><p>Primjeri imaju ulaze i ciljane oznake / vrijednosti.</p><div class="pill">(x, y)</div></div><div class="panel "><div class="panel-head">Nenadzirano</div><div class="term-en">unsupervised learning</div><p>Tražimo strukturu bez zadanih ciljnih oznaka.</p><div class="pill">x</div></div><div class="panel "><div class="panel-head">Potkrepljeno</div><div class="term-en">reinforcement learning</div><p>Agent uči odlukama, povratnom informacijom i nagradom.</p><div class="pill">stanje → akcija</div></div></div></main><div class="slide-n">08</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Nadzirano učenje</h1><div class="redline"></div></header><main class="anm-main"><div class="flowline"><div class="flow-node">Ulazne značajke x</div><div class="flow-arrow">→</div><div class="flow-node">Model fθ</div><div class="flow-arrow">→</div><div class="flow-node">Predviđanje ŷ</div></div><div class="panel wide"><div class="horizontal-separator"></div><div class="compare-row"><span>Ciljna vrijednost <b>y</b></span><span class="flow-arrow">↔</span><span>Predviđanje <b>ŷ</b></span></div><div class="panel-head small-head">Učenje&#58; smanjiti gubitak između predviđanja i cilja</div></div></main><div class="slide-n">09</div></div>
+
+<!--
+**Izgovor i značenje oznaka**
+
+- **x** — „iks”; vektor ulaznih značajki jednog primjera.
+- **θ** — „teta” (grčko slovo theta); skup svih parametara modela.
+- **fθ** — „ef s indeksom teta”; model čije ponašanje određuju parametri θ.
+- **y** — „ipsilon”; stvarna ciljna vrijednost ili oznaka.
+- **ŷ** — „ipsilon s kapicom” (engl. *y-hat*); predviđanje modela.
+
+Istakni da su x i y latinične oznake, a θ grčko slovo; oznake nisu zasebni pojmovi, nego konvencije za konkretne veličine.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Nenadzirano učenje</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Pitanje</div><ul class="bullets"><li>Postoje li prirodne skupine?</li><li>Koje su važne reprezentacije?</li><li>Koji se obrasci ponavljaju?</li></ul></div><div class="panel picture"><img class="cluster-graphic" src="/assets/clusters.png" alt="Tri skupine točaka i njihovi centroidi"/><div class="support centered">Primjer&#58; grupiranje bez oznaka klasa</div></div></div></main><div class="slide-n">10</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Parametrijski i neparametrijski modeli</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Parametrijski</div><ul class="bullets"><li>Arhitektura unaprijed određuje broj parametara</li><li>Broj parametara ne raste samo zato što dodamo više primjera</li><li>Primjer&#58; linearna regresija, neuronske mreže</li></ul></div><div class="panel "><div class="panel-head">Neparametrijski</div><ul class="bullets"><li>Složenost modela može rasti s podacima</li><li>Ne znači „bez parametara”</li><li>Primjer&#58; k najbližih susjeda (k-NN)</li></ul></div></div></main><div class="slide-n">11</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Parametrijski model — potenciometri</h1><div class="redline"></div></header><main class="anm-main"><div class="panel wide"><div class="knobs"><div class="knob"><div class="dial" style="--angle:-48deg"></div><span>w₁</span></div><div class="knob"><div class="dial" style="--angle:12deg"></div><span>w₂</span></div><div class="knob"><div class="dial" style="--angle:65deg"></div><span>w₃</span></div><div class="knob"><div class="dial" style="--angle:-10deg"></div><span>w₄</span></div></div><div class="centered large">Uvježbavanje = podešavanje parametara modela</div></div></main><div class="slide-n">12</div></div>
+
+<!--
+Kotačići predstavljaju parametre modela (primjerice težine w₁, w₂ itd.). Podešavanje parametara mijenja izlaz modela, ali se u stvarnom učenju ne radi nasumičnim ručnim okretanjem. Gradijent i optimizatore formalno ćemo objasniti u idućim predavanjima.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Jedan ciklus nadziranog učenja</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="numbered"><b>1</b><span>Model daje predviđanje</span></div><div class="numbered"><b>2</b><span>Usporedimo ga sa stvarnim ishodom</span></div><div class="numbered"><b>3</b><span>Izračunamo gubitak i prilagodimo parametre</span></div></div><div class="panel "><div class="prediction-label">Predviđanje</div><div class="prediction-value">98 %</div><div class="compare-row"><span>Stvarni ishod</span><b>0 %</b></div><div class="support">Velika pogreška u primjeru; definicija gubitka ovisi o zadatku.</div></div></div></main><div class="slide-n">13</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Nadzirano vs. nenadzirano parametrijsko</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Nadzirano</div><p>Poznat je ciljani odgovor. Parametri se prilagođavaju kako bi model bolje predviđao.</p><div class="pill">predviđanje + oznaka</div></div><div class="panel "><div class="panel-head">Nenadzirano</div><p>Učimo parametre strukture podataka&#58; npr. središta skupina ili parametre raspodjela.</p><div class="pill">obrasci bez oznaka</div></div></div><div class="support">Oba pristupa mogu imati parametre; razlikuje ih dostupnost ciljnih oznaka, a ne postojanje parametara.</div></main><div class="slide-n">14</div></div>
+
+<!--
+**Primjeri stvarnih zadataka i modela**
+
+- Nadzirano, parametrijsko: linearna regresija za procjenu cijene stana iz atributa; logistička regresija za klasifikaciju neželjene pošte; neuronska mreža za prepoznavanje slike.
+- Nenadzirano, parametrijsko: k-means za grupiranje kupaca (učimo centroide); model Gaussove mješavine (GMM) za opis više skupina raspodjelama.
+
+Napomena: podjela „parametrijsko / neparametrijsko” ne određuje je li zadatak nadziran ili nenadziran.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Neparametrijsko učenje — k-NN</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Ideja najbližih susjeda</div><ul class="bullets"><li>Pohranjujemo označene primjere</li><li>Za novi primjer tražimo najsličnije</li><li>Glasovanjem susjeda određujemo klasu</li></ul></div><div class="panel "><div class="knn"><div class="neighbor red" style="left:23%;top:23%">●</div><div class="neighbor red" style="left:37%;top:41%">●</div><div class="neighbor red" style="left:18%;top:65%">●</div><div class="neighbor blue" style="left:63%;top:25%">●</div><div class="neighbor blue" style="left:74%;top:58%">●</div><div class="neighbor blue" style="left:56%;top:70%">●</div><div class="target" style="left:50%;top:50%">?</div></div><div class="support centered">Novo opažanje klasificiramo prema susjedima.</div></div></div></main><div class="slide-n">15</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Vratimo se na početak</h1><div class="redline"></div></header><main class="anm-main"><div class="quote">Podaci su za strojno učenje ono što je iskustvo za ljude — ali model mora naučiti <em>generalizirati</em>.</div><div class="flowline"><div class="flow-node">Podaci</div><div class="flow-arrow">→</div><div class="flow-node">Učenje</div><div class="flow-arrow">→</div><div class="flow-node">Novi ulaz</div><div class="flow-arrow">→</div><div class="flow-node">Predviđanje</div></div><div class="support">Sama memorija trening primjera nije dovoljno dobar rezultat.</div></main><div class="slide-n">16</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Tipovi podataka</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g3"><div class="panel "><div class="panel-head">Strukturirani</div><div class="data-picture">▦</div><p class="centered">Tablice i zapisi</p></div><div class="panel "><div class="panel-head">Polustrukturirani</div><div class="data-picture">{ }</div><p class="centered">JSON / XML</p></div><div class="panel "><div class="panel-head">Nestrukturirani</div><div class="data-picture">▧</div><p class="centered">Slike, govor, tekst</p></div></div><div class="quote">Algoritmima treba numerički prikaz — izvorni podaci ne moraju biti tablični.</div></main><div class="slide-n">17</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Kako podaci postaju numerički?</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Slika → tenzor</div><div class="pixel-grid"><i style="background:#ff6976"></i><i style="background:#6388ad"></i><i style="background:#a695eb"></i><i style="background:#72cdda"></i><i style="background:#72cdda"></i><i style="background:#ff6976"></i><i style="background:#6388ad"></i><i style="background:#a695eb"></i><i style="background:#a695eb"></i><i style="background:#72cdda"></i><i style="background:#ff6976"></i><i style="background:#6388ad"></i><i style="background:#6388ad"></i><i style="background:#a695eb"></i><i style="background:#72cdda"></i><i style="background:#ff6976"></i><i style="background:#ff6976"></i><i style="background:#6388ad"></i><i style="background:#a695eb"></i><i style="background:#72cdda"></i><i style="background:#72cdda"></i><i style="background:#ff6976"></i><i style="background:#6388ad"></i><i style="background:#a695eb"></i><i style="background:#a695eb"></i><i style="background:#72cdda"></i><i style="background:#ff6976"></i><i style="background:#6388ad"></i><i style="background:#6388ad"></i><i style="background:#a695eb"></i><i style="background:#72cdda"></i><i style="background:#ff6976"></i><i style="background:#ff6976"></i><i style="background:#6388ad"></i><i style="background:#a695eb"></i><i style="background:#72cdda"></i></div><div class="support centered">npr. visina × širina × kanali</div></div><div class="panel "><div class="panel-head">Tekst → tokeni → brojevi</div><div class="token-grid"><span>neuronske</span><span>mreže</span><span>uče</span></div><div class="token-grid num"><span>814</span><span>237</span><span>91</span></div><div class="support centered">Reprezentacija omogućuje računanje</div></div></div></main><div class="slide-n">18</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Linearni model kao polazni primjer</h1><div class="redline"></div></header><main class="anm-main"><div class="panel mathpanel"><div class="big-formula">A · w ≈ b</div><div class="support centered">A&#58; ulazne značajke   ·   w&#58; parametri   ·   b&#58; ciljne vrijednosti</div></div><div class="support">Jednostavan primjer linearnog modela.</div></main><div class="slide-n">19</div></div>
+
+<!--
+Naglasak: A · w ≈ b je ilustracija linearnog modela na skupu primjera, a nije opća jednadžba strojnog učenja. U neuronskim mrežama model fθ(x) tipično je nelinearan.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Što znači uvježbati model?</h1><div class="redline"></div></header><main class="anm-main"><div class="flowline"><div class="flow-node">Predviđanje ŷ</div><div class="flow-arrow">→</div><div class="flow-node">Funkcija gubitka L</div><div class="flow-arrow">→</div><div class="flow-node">Ažuriranje θ</div></div><div class="panel mathpanel"><div class="big-formula">min<sub>θ</sub> L(f<sub>θ</sub>(x), y)</div><div class="support centered">Opći cilj&#58; pronaći parametre koji daju dobra predviđanja.</div></div><div class="support">Kod linearne regresije jedan mogući gubitak je srednja kvadratna pogreška.</div></main><div class="slide-n">20</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Regresija</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Što predviđamo?</div><ul class="bullets"><li>Kontinuiranu brojčanu vrijednost</li><li>Povezanost ulaza i ciljne varijable</li><li>Primjer&#58; očekivani trošak goriva</li></ul></div><div class="panel "><div class="big-word">KOLIKO?</div><div class="support centered">„Koliko će ovo koštati?”<br/>„Kolika je temperatura sutra?”</div></div></div></main><div class="slide-n">21</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Linearna regresija — matematički prikaz</h1><div class="redline"></div></header><main class="anm-main"><div class="panel mathpanel"><div class="big-formula">ŷ = w₀ + w₁x₁ + ··· + w<sub>d</sub>x<sub>d</sub></div><div class="support centered">w₀&#58; slobodni član   ·   xᵢ&#58; značajke   ·   wᵢ&#58; težine</div></div><div class="support">Ista ideja kao prethodni A · w ≈ b, sada za jedan ulazni primjer.</div></main><div class="slide-n">22</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Primjer&#58; trošak goriva</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Ulaz i izlaz</div><div class="huge-arrow">udaljenost → trošak</div><ul class="bullets"><li>Bilježimo primjere iz prošlih putovanja</li><li>Učimo funkciju koja opisuje trend</li><li>Za novu udaljenost dobivamo procjenu</li></ul></div><div class="panel picture"><svg class="viz" viewBox="0 0 650 320" role="img" aria-label="Točke mjerenja i aproksimacijski regresijski pravac"><line x1="32" y1="290" x2="630" y2="290" stroke="#c4d8e0" stroke-width="3"/><line x1="32" y1="290" x2="32" y2="20" stroke="#c4d8e0" stroke-width="3"/><circle cx="42" cy="269" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="58" cy="284" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="74" cy="259" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="90" cy="252" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="106" cy="231" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="122" cy="244" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="138" cy="274" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="154" cy="251" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="170" cy="261" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="186" cy="236" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="202" cy="234" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="218" cy="224" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="234" cy="171" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="250" cy="231" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="266" cy="217" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="282" cy="212" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="298" cy="149" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="314" cy="143" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="330" cy="160" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="346" cy="166" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="362" cy="181" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="378" cy="167" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="394" cy="176" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="410" cy="141" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="426" cy="161" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="442" cy="158" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="458" cy="125" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="474" cy="182" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="490" cy="146" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="506" cy="158" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="522" cy="106" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="538" cy="97" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="554" cy="103" r="5.5" fill="#a9dff0" opacity=".85"/><circle cx="570" cy="104" r="5.5" fill="#a9dff0" opacity=".85"/><line x1="40" y1="260" x2="616" y2="47" stroke="#ff646e" stroke-width="6" stroke-linecap="round"/></svg><div class="support centered">Model pronalazi pravac koji približno prati podatke.</div></div></div></main><div class="slide-n">23</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Klasifikacija</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Što predviđamo?</div><ul class="bullets"><li>Diskretnu oznaku klase</li><li>Binarno&#58; dvije klase</li><li>Višeklasno&#58; više mogućih oznaka</li></ul></div><div class="panel "><div class="big-word">KOJOJ KLASI?</div><div class="support centered">Oznake mogu biti brojevi, ali klase nisu kontinuirane veličine.</div></div></div></main><div class="slide-n">24</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Binarna klasifikacija</h1><div class="redline"></div></header><main class="anm-main"><div class="panel vizframe"><svg class="viz" viewBox="0 0 660 320" role="img" aria-label="Binarna klasifikacija: dvije skupine i granica odlučivanja"><path d="M20 298H640 M20 298V18" stroke="#bcd2e0" stroke-width="2"/><path d="M90 270 Q245 160 560 64" stroke="#fff" stroke-width="5" stroke-dasharray="11 10" fill="none"/><circle cx="110" cy="240" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="300" cy="290" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="290" cy="232" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="218" cy="219" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="79" cy="209" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="270" cy="241" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="163" cy="183" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="182" cy="204" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="193" cy="252" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="38" cy="226" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="66" cy="188" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="85" cy="280" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="247" cy="252" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="127" cy="166" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="158" cy="239" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="184" cy="261" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="160" cy="290" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="245" cy="290" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="211" cy="220" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="118" cy="266" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="278" cy="237" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="224" cy="218" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="155" cy="217" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="38" cy="185" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="193" cy="236" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="282" cy="258" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="226" cy="232" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="38" cy="232" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="115" cy="252" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="166" cy="215" r="6.8" fill="#ff707a" opacity=".82"/><circle cx="419" cy="92" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="299" cy="33" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="567" cy="124" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="427" cy="89" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="433" cy="250" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="508" cy="105" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="407" cy="27" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="475" cy="167" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="543" cy="116" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="413" cy="52" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="471" cy="86" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="368" cy="179" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="385" cy="80" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="262" cy="181" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="450" cy="101" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="488" cy="67" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="411" cy="118" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="394" cy="119" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="567" cy="139" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="584" cy="153" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="611" cy="117" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="500" cy="56" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="449" cy="72" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="458" cy="58" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="491" cy="220" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="398" cy="130" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="517" cy="72" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="439" cy="81" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="501" cy="76" r="6.8" fill="#80d8eb" opacity=".82"/><circle cx="628" cy="143" r="6.8" fill="#80d8eb" opacity=".82"/></svg><div class="support centered">Granica odlučivanja razdvaja područja u prostoru značajki.</div></div><div class="support">Kod klasifikacije se ciljna kategorija može zapisati s 0 i 1.</div></main><div class="slide-n">25</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Podnaučenost i prenaučenost</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g3"><div class="panel "><div class="panel-head">Podnaučenost</div><svg class="viz compare-viz" viewBox="0 0 275 215" role="img" aria-label="Usporedba stupnja prilagodbe modela"><line x1="12" y1="195" x2="262" y2="195" stroke="#d9e4e8" stroke-width="2"/><line x1="12" y1="195" x2="12" y2="20" stroke="#d9e4e8" stroke-width="2"/><circle cx="48" cy="160" r="5.7" fill="#a8def4"/><circle cx="59" cy="140" r="5.7" fill="#a8def4"/><circle cx="70" cy="190" r="5.7" fill="#a8def4"/><circle cx="81" cy="145" r="5.7" fill="#a8def4"/><circle cx="92" cy="132" r="5.7" fill="#a8def4"/><circle cx="103" cy="133" r="5.7" fill="#a8def4"/><circle cx="114" cy="105" r="5.7" fill="#a8def4"/><circle cx="125" cy="96" r="5.7" fill="#a8def4"/><circle cx="136" cy="119" r="5.7" fill="#a8def4"/><circle cx="147" cy="92" r="5.7" fill="#a8def4"/><circle cx="158" cy="115" r="5.7" fill="#a8def4"/><circle cx="169" cy="87" r="5.7" fill="#a8def4"/><circle cx="180" cy="45" r="5.7" fill="#a8def4"/><circle cx="191" cy="51" r="5.7" fill="#a8def4"/><circle cx="202" cy="56" r="5.7" fill="#a8def4"/><path d="M24 132 L257 132" stroke="#ff6670" stroke-width="5" fill="none"/></svg><div class="support centered">Preslab model ili nedovoljno učenje</div></div><div class="panel "><div class="panel-head">Dobra prilagodba</div><svg class="viz compare-viz" viewBox="0 0 275 215" role="img" aria-label="Usporedba stupnja prilagodbe modela"><line x1="12" y1="195" x2="262" y2="195" stroke="#d9e4e8" stroke-width="2"/><line x1="12" y1="195" x2="12" y2="20" stroke="#d9e4e8" stroke-width="2"/><circle cx="48" cy="160" r="5.7" fill="#a8def4"/><circle cx="59" cy="140" r="5.7" fill="#a8def4"/><circle cx="70" cy="190" r="5.7" fill="#a8def4"/><circle cx="81" cy="145" r="5.7" fill="#a8def4"/><circle cx="92" cy="132" r="5.7" fill="#a8def4"/><circle cx="103" cy="133" r="5.7" fill="#a8def4"/><circle cx="114" cy="105" r="5.7" fill="#a8def4"/><circle cx="125" cy="96" r="5.7" fill="#a8def4"/><circle cx="136" cy="119" r="5.7" fill="#a8def4"/><circle cx="147" cy="92" r="5.7" fill="#a8def4"/><circle cx="158" cy="115" r="5.7" fill="#a8def4"/><circle cx="169" cy="87" r="5.7" fill="#a8def4"/><circle cx="180" cy="45" r="5.7" fill="#a8def4"/><circle cx="191" cy="51" r="5.7" fill="#a8def4"/><circle cx="202" cy="56" r="5.7" fill="#a8def4"/><path d="M24 175 L257 48" stroke="#ff6670" stroke-width="5" fill="none"/></svg><div class="support centered">Hvata trend i generalizira</div></div><div class="panel "><div class="panel-head">Prenaučenost</div><svg class="viz compare-viz" viewBox="0 0 275 215" role="img" aria-label="Usporedba stupnja prilagodbe modela"><line x1="12" y1="195" x2="262" y2="195" stroke="#d9e4e8" stroke-width="2"/><line x1="12" y1="195" x2="12" y2="20" stroke="#d9e4e8" stroke-width="2"/><circle cx="48" cy="160" r="5.7" fill="#a8def4"/><circle cx="59" cy="140" r="5.7" fill="#a8def4"/><circle cx="70" cy="190" r="5.7" fill="#a8def4"/><circle cx="81" cy="145" r="5.7" fill="#a8def4"/><circle cx="92" cy="132" r="5.7" fill="#a8def4"/><circle cx="103" cy="133" r="5.7" fill="#a8def4"/><circle cx="114" cy="105" r="5.7" fill="#a8def4"/><circle cx="125" cy="96" r="5.7" fill="#a8def4"/><circle cx="136" cy="119" r="5.7" fill="#a8def4"/><circle cx="147" cy="92" r="5.7" fill="#a8def4"/><circle cx="158" cy="115" r="5.7" fill="#a8def4"/><circle cx="169" cy="87" r="5.7" fill="#a8def4"/><circle cx="180" cy="45" r="5.7" fill="#a8def4"/><circle cx="191" cy="51" r="5.7" fill="#a8def4"/><circle cx="202" cy="56" r="5.7" fill="#a8def4"/><path d="M24 160 Q54 28 78 140 T120 72 T170 100 T218 42 T257 69" stroke="#ff6670" stroke-width="5" fill="none"/></svg><div class="support centered">Hvata i slučajni šum</div></div></div></main><div class="slide-n">26</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Ključno pitanje&#58; generalizacija</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Trening skup</div><div class="kpi-value">nizak gubitak</div><div class="support">Nije dovoljan pokazatelj kvalitete.</div></div><div class="panel "><div class="panel-head">Novi / validacijski podaci</div><div class="kpi-value accent">kvaliteta generalizacije</div><div class="support">Otkrivaju je li model naučio samo primjere ili stvaran obrazac.</div></div></div><div class="quote">Nastojimo poboljšati predviđanja na podacima koje model nije vidio tijekom uvježbavanja.</div></main><div class="slide-n">27</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Grupiranje (clustering)</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Primjer&#58; k-means</div><ul class="bullets"><li>Zadamo broj skupina k</li><li>Pronalazimo središta (centroide)</li><li>Točke pridružujemo najbližem centroidu</li><li>Ponavljamo dok se grupiranje ne stabilizira</li></ul></div><div class="panel picture"><img class="cluster-graphic" src="/assets/clusters.png" alt="Tri skupine točaka i njihovi centroidi"/><div class="support centered">Obojene skupine i njihovi centroidi</div></div></div></main><div class="slide-n">28</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Evaluacija klasifikatora</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Nije dovoljna jedna metrika</div><ul class="bullets"><li>Koje su pogreške najskuplje?</li><li>Jesu li klase neuravnotežene?</li><li>Je li važnije ne propustiti pozitivne primjere?</li></ul></div><div class="panel "><div class="stat-words"><span>Accuracy</span><span>Precision</span><span>Recall</span><span>F1</span></div></div></div></main><div class="slide-n">29</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Matrica konfuzije</h1><div class="redline"></div></header><main class="anm-main"><div class="panel wide"><div class="matrix-wrap"><div class="matrix-y">STVARNA KLASA</div><div class="matrix-area"><div class="matrix-x">PREDVIĐENA KLASA</div><div class="confgrid"><div class="blank"></div><div class="axis">Pozitivna</div><div class="axis">Negativna</div><div class="axis">Pozitivna</div><div class="cell ctp"><b>TP</b><span>točno pozitivno</span></div><div class="cell cfn"><b>FN</b><span>propušteno pozitivno</span></div><div class="axis">Negativna</div><div class="cell cfp"><b>FP</b><span>lažno pozitivno</span></div><div class="cell ctn"><b>TN</b><span>točno negativno</span></div></div></div></div></div></main><div class="slide-n">30</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Četiri ishoda klasifikacije</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="outcome good"><b>TP</b><span>Predvidjeli smo pozitivno — i jest pozitivno.</span></div><div class="outcome bad"><b>FP</b><span>Predvidjeli smo pozitivno — ali je negativno.</span></div></div><div class="panel "><div class="outcome bad"><b>FN</b><span>Predvidjeli smo negativno — ali je pozitivno.</span></div><div class="outcome good"><b>TN</b><span>Predvidjeli smo negativno — i jest negativno.</span></div></div></div></main><div class="slide-n">31</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Točnost / Accuracy</h1><div class="redline"></div></header><main class="anm-main"><div class="panel mathpanel"><div class="big-formula">Accuracy = (TP + TN) / N</div><div class="support centered">N = TP + TN + FP + FN</div></div><div class="quote">Visoka točnost može zavarati ako je jedna klasa mnogo češća od druge.</div></main><div class="slide-n">32</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Preciznost i odziv</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel mathpanel"><div class="big-formula">P = TP / (TP + FP)</div><div class="support centered">Preciznost&#58; udio točnih među proglašenim pozitivnima.</div></div><div class="panel mathpanel"><div class="big-formula">R = TP / (TP + FN)</div><div class="support centered">Odziv&#58; udio pronađenih među stvarno pozitivnima.</div></div></div><div class="support">Osjetljivost (sensitivity) = recall. Preciznost nije isto što i accuracy.</div></main><div class="slide-n">33</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Osjetljivost i specifičnost</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel mathpanel"><div class="big-formula">TPR = TP / (TP + FN)</div><div class="support centered">True positive rate = osjetljivost = recall</div></div><div class="panel mathpanel"><div class="big-formula">TNR = TN / (TN + FP)</div><div class="support centered">True negative rate = specifičnost</div></div></div><div class="support">Odabir metrike ovisi o tome je li veća cijena propuštenog slučaja ili lažne uzbune.</div></main><div class="slide-n">34</div></div>
+
+<!--
+**TPR** znači *true positive rate* (stopa stvarno pozitivnih), nije *true positive recall*; isto je što i odziv / osjetljivost.
+
+**TNR** znači *true negative rate* (stopa stvarno negativnih), odnosno specifičnost. Nije uobičajen naziv „TN recall”.
+
+Primjer: pri medicinskom probiru visok TPR znači manje propuštenih slučajeva, ali to samo po sebi ne jamči mali broj lažnih alarma.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>F1-mjera</h1><div class="redline"></div></header><main class="anm-main"><div class="panel mathpanel"><div class="big-formula">F1 = 2 · P · R / (P + R)</div><div class="support centered">Harmonijska sredina P (precision) i R (recall)</div></div><div class="panel mathpanel"><div class="big-formula smaller">F1 = 2TP / (2TP + FP + FN)</div><div class="support centered">Ista F1-mjera, zapisana preko TP, FP i FN</div></div></main><div class="slide-n">35</div></div>
+
+<!--
+Nisu dvije različite F1-mjere. Druga formula dobiva se uvrštavanjem P = TP/(TP+FP) i R = TP/(TP+FN) u prvu.
+
+F1 posebno kažnjava velik nesrazmjer između preciznosti i odziva. TN ne ulazi izravno u ovu binarnu F1-formulu. U rubnom slučaju kada je nazivnik nula treba definirati konvenciju.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Kratki zadatak — klasifikacijske metrike</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">100 primjera</div><div class="exercise-num">TP 4&nbsp;&nbsp; FP 1<br/>FN 16&nbsp; TN 79</div><div class="support centered">Izračunajte accuracy, precision, recall i F1.</div></div><div class="panel" v-click><div class="panel-head">Rješenje (otkrij klikom)</div><div class="solution-list"><span>Accuracy <b>83 %</b></span><span>Precision <b>80 %</b></span><span>Recall <b>20 %</b></span><span>F1 <b>32 %</b></span></div></div></div><div class="support">Poruka&#58; vrlo dobra ukupna točnost može prikriti loš odziv pozitivne klase.</div></main><div class="slide-n">36</div></div>
+
+<!--
+**Redoslijed izlaganja:** prvo pokaži zadatak i pusti studentima 30–60 sekundi za računanje, zatim jednim klikom otkrij rješenje.
+
+**Interpretacija rezultata:**
+
+- **Accuracy = 83 %** može djelovati dobro, ali skup ima 80 negativnih i 20 pozitivnih primjera. Model koji uvijek predviđa negativno imao bi čak 80 % accuracy.
+- **Precision = 80 %** znači da su četiri od pet pozitivnih predviđanja točna.
+- **Recall = 20 %** znači da model nalazi samo 4 od 20 stvarno pozitivnih primjera; propušta ih 16.
+- **F1 = 32 %** sažima nesrazmjer visoke preciznosti i niskog odziva.
+
+**Prijelaz na demonstraciju:** može li promjena praga odluke popraviti odziv bez ponovnog uvježbavanja?
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Live demo — prag klasifikacije</h1><div class="redline"></div></header><main class="anm-main demo-main"><ThresholdDemo /></main><div class="slide-n">37</div></div>
+
+<!--
+**Trajanje 4–5 minuta.** Poveznica sa zadatkom na prethodnom slajdu: na početnom pragu 0,50 rezultati su TP=4, FP=1, FN=16, TN=79, odnosno accuracy 83 %, precision 80 %, recall 20 % i F1 32 %.
+
+1. Neka studenti predvide učinak smanjenja praga na 0,20.
+2. Pomakni klizač i provjeri rast TP, ali i moguć rast FP.
+3. Povećaj prag na 0,70; razgovaraj o razlici između precision i recall.
+4. Zaključi da prag mijenja odluku na temelju istih izlaznih skorova, ali ne mijenja parametre uvježbanog modela.
+
+Skorovi su **umjetno pripremljeni ilustrativni podaci**, ne rezultati stvarno uvježbanog modela. Nisu nužno kalibrirane vjerojatnosti; računamo deterministički, bez interneta.
+-->
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Što smo ponovili?</h1><div class="redline"></div></header><main class="anm-main"><div class="grid g2"><div class="panel "><div class="panel-head">Učenje</div><ul class="bullets"><li>Podaci i reprezentacije</li><li>Parametri modela</li><li>Funkcija gubitka</li></ul></div><div class="panel "><div class="panel-head">Vrednovanje</div><ul class="bullets"><li>Generalizacija</li><li>Regresija i klasifikacija</li><li>Metrike ovise o zadatku</li></ul></div></div><div class="quote">Sljedeće pitanje&#58; kako se ovi koncepti realiziraju u neuronskoj mreži?</div></main><div class="slide-n">38</div></div>
+---
+layout: default
+---
+<div class="anm content-slide"><header class="anm-head"><h1>Nastavak&#58; neuronske mreže</h1><div class="redline"></div></header><main class="anm-main"><div class="future-center"><div class="net-graph"><div class="net-layer"><i></i><i></i><i></i></div><div class="net-links">⟶</div><div class="net-layer"><i></i><i></i><i></i><i></i></div><div class="net-links">⟶</div><div class="net-layer"><i></i><i></i></div></div><div class="future-text">Od parametara i funkcije gubitka do <span>neurona i slojeva</span>.</div></div></main><div class="slide-n">39</div></div>
+---
+layout: default
+---
+<div class="anm is-cover"><main class="anm-main"><div class="cover-inner"><div class="cover-title thanks">HVALA NA PAŽNJI!</div><div class="cover-rule"></div><div class="cover-sub">Arhitekture neuronskih mreža · Predavanje 01</div></div></main><div class="slide-n">40</div></div>

@@ -1,0 +1,203 @@
+[
+  {
+    "slide": 1,
+    "title": "ARHITEKTURE NEURONSKIH MREŽA",
+    "source_slide": 1
+  },
+  {
+    "slide": 2,
+    "title": "Strojno učenje — ponavljanje",
+    "source_slide": 2
+  },
+  {
+    "slide": 3,
+    "title": "Zašto strojno učenje?",
+    "source_slide": 3
+  },
+  {
+    "slide": 4,
+    "title": "Duboko učenje",
+    "source_slide": 4
+  },
+  {
+    "slide": 5,
+    "title": "Duboko učenje u praksi",
+    "source_slide": 5
+  },
+  {
+    "slide": 6,
+    "title": "Primjer generiranja sintetičkih lica",
+    "source_slide": 6
+  },
+  {
+    "slide": 7,
+    "title": "Matematički koncepti",
+    "source_slide": 7
+  },
+  {
+    "slide": 8,
+    "title": "Tri česta pristupa učenju",
+    "source_slide": 8
+  },
+  {
+    "slide": 9,
+    "title": "Nadzirano učenje",
+    "source_slide": 9
+  },
+  {
+    "slide": 10,
+    "title": "Nenadzirano učenje",
+    "source_slide": 10
+  },
+  {
+    "slide": 11,
+    "title": "Parametrijski i neparametrijski modeli",
+    "source_slide": 11
+  },
+  {
+    "slide": 12,
+    "title": "Parametrijski model — potenciometri",
+    "source_slide": 12
+  },
+  {
+    "slide": 13,
+    "title": "Jedan ciklus nadziranog učenja",
+    "source_slide": 13
+  },
+  {
+    "slide": 14,
+    "title": "Nadzirano vs. nenadzirano parametrijsko",
+    "source_slide": 14
+  },
+  {
+    "slide": 15,
+    "title": "Neparametrijsko učenje — k-NN",
+    "source_slide": 15
+  },
+  {
+    "slide": 16,
+    "title": "Vratimo se na početak",
+    "source_slide": 16
+  },
+  {
+    "slide": 17,
+    "title": "Tipovi podataka",
+    "source_slide": 17
+  },
+  {
+    "slide": 18,
+    "title": "Kako podaci postaju numerički?",
+    "source_slide": 17
+  },
+  {
+    "slide": 19,
+    "title": "Linearni model kao polazni primjer",
+    "source_slide": 18
+  },
+  {
+    "slide": 20,
+    "title": "Što znači uvježbati model?",
+    "source_slide": 19
+  },
+  {
+    "slide": 21,
+    "title": "Regresija",
+    "source_slide": 20
+  },
+  {
+    "slide": 22,
+    "title": "Linearna regresija — matematički prikaz",
+    "source_slide": 21
+  },
+  {
+    "slide": 23,
+    "title": "Primjer: trošak goriva",
+    "source_slide": 22
+  },
+  {
+    "slide": 24,
+    "title": "Klasifikacija",
+    "source_slide": 23
+  },
+  {
+    "slide": 25,
+    "title": "Binarna klasifikacija",
+    "source_slide": 23
+  },
+  {
+    "slide": 26,
+    "title": "Podnaučenost i prenaučenost",
+    "source_slide": 24
+  },
+  {
+    "slide": 27,
+    "title": "Ključno pitanje: generalizacija",
+    "source_slide": 24
+  },
+  {
+    "slide": 28,
+    "title": "Grupiranje (clustering)",
+    "source_slide": 25
+  },
+  {
+    "slide": 29,
+    "title": "Evaluacija klasifikatora",
+    "source_slide": 26
+  },
+  {
+    "slide": 30,
+    "title": "Matrica konfuzije",
+    "source_slide": 27
+  },
+  {
+    "slide": 31,
+    "title": "Četiri ishoda klasifikacije",
+    "source_slide": 27
+  },
+  {
+    "slide": 32,
+    "title": "Točnost / Accuracy",
+    "source_slide": 28
+  },
+  {
+    "slide": 33,
+    "title": "Preciznost i odziv",
+    "source_slide": 28
+  },
+  {
+    "slide": 34,
+    "title": "Osjetljivost i specifičnost",
+    "source_slide": 28
+  },
+  {
+    "slide": 35,
+    "title": "F1-mjera",
+    "source_slide": 30
+  },
+  {
+    "slide": 36,
+    "title": "Kratki zadatak — klasifikacijske metrike",
+    "source_slide": 29
+  },
+  {
+    "slide": 37,
+    "title": "Live demo — prag klasifikacije",
+    "source_slide": 29,
+    "kind": "interactive_demo"
+  },
+  {
+    "slide": 38,
+    "title": "Što smo ponovili?",
+    "source_slide": 31
+  },
+  {
+    "slide": 39,
+    "title": "Nastavak: neuronske mreže",
+    "source_slide": 31
+  },
+  {
+    "slide": 40,
+    "title": "HVALA NA PAŽNJI!",
+    "source_slide": 32
+  }
+]

@@ -1,0 +1,43 @@
+name: P01 Slidev build and browser check
+
+on:
+  push:
+    paths:
+      - "predavanja/p01/**"
+      - ".github/workflows/p01-slidev.yml"
+  pull_request:
+    paths:
+      - "predavanja/p01/**"
+      - ".github/workflows/p01-slidev.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-p01:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: predavanja/p01
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.18.0"
+      - name: Install project and browser-test dependencies
+        run: |
+          npm install --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund puppeteer-core@24.24.0
+      - name: Build slides
+        run: npm run build
+      - name: Verify all slides in Chromium
+        run: |
+          npm run dev -- --force --port 3030 > /tmp/anm-p01-slidev.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid 2>/dev/null || true' EXIT
+          for i in $(seq 1 35); do
+            if curl --fail --silent --output /dev/null http://localhost:3030/; then break; fi
+            sleep 1
+          done
+          node check-p01.mjs || { cat /tmp/anm-p01-slidev.log; exit 1; }
