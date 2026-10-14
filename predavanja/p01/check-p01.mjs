@@ -20,25 +20,27 @@ try {
       try {
         await page.waitForSelector('.anm', { timeout: 5000, visible: true })
       } catch {}
-      report = await page.evaluate(() => {
-        const el = document.querySelector('.anm')
-        const h = document.querySelector('.anm-head h1')
+      report = await page.evaluate((slide) => {
+        const elements = [...document.querySelectorAll('.anm')]
+        const el = elements.find(e => e.getBoundingClientRect().width > 200 && e.querySelector('.slide-n')?.textContent?.trim() === String(slide).padStart(2, '0'))
+        const h = el?.querySelector('.anm-head h1')
         const rect = el?.getBoundingClientRect()
         const styles = el ? getComputedStyle(el) : null
         return {
           title: document.title,
-          bodyText: document.body.innerText.slice(0, 180),
-          anmCount: document.querySelectorAll('.anm').length,
+          bodyText: el?.innerText.slice(0, 180) || '',
+          slideNumber: el?.querySelector('.slide-n')?.textContent?.trim() || '',
+          anmCount: elements.length,
           heading: h?.textContent || '',
           slideBox: rect ? { width: rect.width, height: rect.height } : null,
           style: styles ? { display: styles.display, opacity: styles.opacity, visibility: styles.visibility, background: styles.backgroundImage.slice(0, 90) } : null,
         }
-      })
-      if (report.anmCount > 0 && report.slideBox?.width > 200) break
+      }, slide)
+      if (report.slideNumber === String(slide).padStart(2, '0') && report.slideBox?.width > 200) break
       console.log('RETRY ' + slide + ' attempt ' + attempt)
       await new Promise(resolve => setTimeout(resolve, 1000))
     }
-    const visible = !!(report?.anmCount > 0 && report.slideBox?.width > 200)
+    const visible = !!(report?.slideNumber === String(slide).padStart(2, '0') && report.slideBox?.width > 200)
     console.log('SLIDE_PROBE ' + slide + ' ' + JSON.stringify({ visible, ...report }))
     if (!visible) failed = true
   }
