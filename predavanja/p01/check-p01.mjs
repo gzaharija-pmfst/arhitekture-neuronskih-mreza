@@ -13,27 +13,13 @@ try {
   const errors = []
   page.on('pageerror', e => errors.push(e.message))
   page.on('console', msg => { if (msg.type() === 'error') errors.push(msg.text()) })
-  for (const slide of [1, 2, 3, 12, 32, 39]) {
+  for (const slide of [1, 2, 5, 6, 7, 8, 9, 12, 14, 19, 34, 35, 36, 37, 38, 40]) {
     let report
     for (let attempt = 1; attempt <= 3; attempt++) {
       await page.goto(base + '/' + slide, { waitUntil: 'domcontentloaded', timeout: 30000 })
       try {
         await page.waitForSelector('.anm', { timeout: 5000, visible: true })
       } catch {}
-      if (slide === 2 && attempt === 1) {
-        const structure = await page.evaluate(() => ({
-          url: location.href,
-          viewport: { width: innerWidth, height: innerHeight },
-          center: document.elementFromPoint(innerWidth / 2, innerHeight / 2)?.outerHTML?.slice(0, 450),
-          roots: [...document.querySelectorAll('.anm')].slice(0, 25).map(e => ({
-            number: e.querySelector('.slide-n')?.textContent?.trim(),
-            heading: e.querySelector('h1')?.textContent,
-            rect: (() => { const r = e.getBoundingClientRect(); return { x:r.x, y:r.y, w:r.width, h:r.height } })(),
-            parents: (() => { let n=e, x=[]; for(let i=0;i<5 && n;i++,n=n.parentElement){ const r=n.getBoundingClientRect(); x.push({tag:n.tagName, cls:String(n.className).slice(0,85), w:r.width,h:r.height}) } return x })(),
-          })),
-        }))
-        console.log('SLIDE_STRUCTURE ' + JSON.stringify(structure))
-      }
       report = await page.evaluate((slide) => {
         const elements = [...document.querySelectorAll('.anm')]
         const el = elements.find(e => e.getBoundingClientRect().width > 200 && e.querySelector('.slide-n')?.textContent?.trim() === String(slide).padStart(2, '0'))
@@ -57,6 +43,33 @@ try {
     const visible = !!(report?.slideNumber === String(slide).padStart(2, '0') && report.slideBox?.width > 200)
     console.log('SLIDE_PROBE ' + slide + ' ' + JSON.stringify({ visible, ...report }))
     if (!visible) failed = true
+    if (slide === 37 && visible) {
+      const metrics = await page.evaluate(() => {
+        const el = [...document.querySelectorAll('.anm')].find(e => e.getBoundingClientRect().width > 200)
+        const root = el?.querySelector('.threshold-demo')
+        const score = key => root?.querySelector('[data-testid="' + key + '"]')?.textContent?.trim()
+        return { exists: !!root, tp: score('tp'), fp: score('fp'), fn: score('fn'), tn: score('tn'), accuracy: score('accuracy'), precision: score('precision'), recall: score('recall'), f1: score('f1') }
+      })
+      console.log('DEMO_INITIAL ' + JSON.stringify(metrics))
+      if (JSON.stringify([metrics.tp,metrics.fp,metrics.fn,metrics.tn,metrics.accuracy,metrics.precision,metrics.recall,metrics.f1]) !== JSON.stringify(['4','1','16','79','83 %','80 %','20 %','32 %'])) failed = true
+      await page.evaluate(() => {
+        const input = document.querySelector('.threshold-demo input[type="range"]')
+        if (input) {
+          const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set
+          setter.call(input,'0.2')
+          input.dispatchEvent(new Event('input', { bubbles: true }))
+          input.dispatchEvent(new Event('change', { bubbles: true }))
+        }
+      })
+      await new Promise(resolve => setTimeout(resolve, 400))
+      const changed = await page.evaluate(() => {
+        const root = [...document.querySelectorAll('.anm')].find(e => e.getBoundingClientRect().width > 200)?.querySelector('.threshold-demo')
+        const score = key => root?.querySelector('[data-testid="' + key + '"]')?.textContent?.trim()
+        return { threshold:score('threshold-value'), tp:score('tp'), recall:score('recall') }
+      })
+      console.log('DEMO_CHANGED ' + JSON.stringify(changed))
+      if (changed.threshold !== '0.20' || Number(changed.tp) <= 4 || changed.recall === '20 %') failed = true
+    }
   }
   console.log('BROWSER_ERRORS ' + JSON.stringify(errors.slice(0, 15)))
 } finally {
