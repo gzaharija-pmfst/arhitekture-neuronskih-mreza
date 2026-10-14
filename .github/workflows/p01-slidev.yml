@@ -45,3 +45,15 @@ jobs:
           done
           cat /tmp/anm-p01-slidev.log
           exit 1
+      - name: Inspect slide rendering in Chromium
+        run: |
+          npm install --no-save --no-package-lock --no-audit --no-fund puppeteer-core@24.24.0
+          which google-chrome
+          npm run dev -- --port 3030 > /tmp/anm-p01-chrome.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl --fail --silent --output /dev/null http://localhost:3030/; then break; fi
+            sleep 1
+          done
+          node ../../scripts/check-p01.mjs
