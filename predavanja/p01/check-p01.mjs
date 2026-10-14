@@ -20,6 +20,20 @@ try {
       try {
         await page.waitForSelector('.anm', { timeout: 5000, visible: true })
       } catch {}
+      if (slide === 2 && attempt === 1) {
+        const structure = await page.evaluate(() => ({
+          url: location.href,
+          viewport: { width: innerWidth, height: innerHeight },
+          center: document.elementFromPoint(innerWidth / 2, innerHeight / 2)?.outerHTML?.slice(0, 450),
+          roots: [...document.querySelectorAll('.anm')].slice(0, 25).map(e => ({
+            number: e.querySelector('.slide-n')?.textContent?.trim(),
+            heading: e.querySelector('h1')?.textContent,
+            rect: (() => { const r = e.getBoundingClientRect(); return { x:r.x, y:r.y, w:r.width, h:r.height } })(),
+            parents: (() => { let n=e, x=[]; for(let i=0;i<5 && n;i++,n=n.parentElement){ const r=n.getBoundingClientRect(); x.push({tag:n.tagName, cls:String(n.className).slice(0,85), w:r.width,h:r.height}) } return x })(),
+          })),
+        }))
+        console.log('SLIDE_STRUCTURE ' + JSON.stringify(structure))
+      }
       report = await page.evaluate((slide) => {
         const elements = [...document.querySelectorAll('.anm')]
         const el = elements.find(e => e.getBoundingClientRect().width > 200 && e.querySelector('.slide-n')?.textContent?.trim() === String(slide).padStart(2, '0'))
