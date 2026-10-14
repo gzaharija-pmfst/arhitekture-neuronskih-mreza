@@ -37,7 +37,7 @@ jobs:
           server_pid=$!
           trap 'kill $server_pid 2>/dev/null || true' EXIT
           for i in $(seq 1 30); do
-            if curl --fail --silent --output /tmp/anm-p01-page.html http://127.0.0.1:3030/; then
+            if curl --fail --silent --output /tmp/anm-p01-page.html http://localhost:3030/; then
               echo "Slidev dev server served HTTP 200"
               exit 0
             fi
