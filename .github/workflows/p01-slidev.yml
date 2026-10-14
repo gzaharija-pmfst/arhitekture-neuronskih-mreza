@@ -1,4 +1,4 @@
-name: P01 Slidev build
+name: P01 Slidev build and browser check
 
 on:
   push:
@@ -25,35 +25,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22.18.0"
-      - name: Verify Node version
-        run: node --version
-      - name: Install dependencies
-        run: npm install --no-fund
-      - name: Build Slidev presentation
-        run: npm run build
-      - name: Smoke test Slidev dev server
+      - name: Install project and browser-test dependencies
         run: |
-          npm run dev -- --port 3030 > /tmp/anm-p01-slidev.log 2>&1 &
-          server_pid=$!
-          trap 'kill $server_pid 2>/dev/null || true' EXIT
-          for i in $(seq 1 30); do
-            if curl --fail --silent --output /tmp/anm-p01-page.html http://localhost:3030/; then
-              echo "Slidev dev server served HTTP 200"
-              exit 0
-            fi
-            sleep 1
-          done
-          cat /tmp/anm-p01-slidev.log
-          exit 1
-      - name: Inspect slide rendering in Chromium
-        run: |
+          npm install --no-fund
           npm install --no-save --no-package-lock --no-audit --no-fund puppeteer-core@24.24.0
-          which google-chrome
-          npm run dev -- --port 3030 > /tmp/anm-p01-chrome.log 2>&1 &
+      - name: Build slides
+        run: npm run build
+      - name: Verify all slides in Chromium
+        run: |
+          npm run dev -- --force --port 3030 > /tmp/anm-p01-slidev.log 2>&1 &
           server_pid=$!
           trap 'kill $server_pid 2>/dev/null || true' EXIT
-          for i in $(seq 1 30); do
+          for i in $(seq 1 35); do
             if curl --fail --silent --output /dev/null http://localhost:3030/; then break; fi
             sleep 1
           done
-          node check-p01.mjs
+          node check-p01.mjs || { cat /tmp/anm-p01-slidev.log; exit 1; }
