@@ -1,0 +1,16 @@
+{
+  "name": "anm-p01-slidev",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "start": "slidev",
+    "build": "slidev build",
+    "export": "slidev export --format pdf"
+  },
+  "devDependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest"
+  }
+}
