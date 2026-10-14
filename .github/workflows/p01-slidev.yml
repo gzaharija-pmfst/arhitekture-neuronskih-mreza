@@ -1,0 +1,33 @@
+name: P01 Slidev build
+
+on:
+  push:
+    paths:
+      - "predavanja/p01/**"
+      - ".github/workflows/p01-slidev.yml"
+  pull_request:
+    paths:
+      - "predavanja/p01/**"
+      - ".github/workflows/p01-slidev.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-p01:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: predavanja/p01
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+      - name: Verify Node version
+        run: node --version
+      - name: Install dependencies
+        run: npm install --no-fund
+      - name: Build Slidev presentation
+        run: npm run build
