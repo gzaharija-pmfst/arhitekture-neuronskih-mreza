@@ -56,4 +56,4 @@ jobs:
             if curl --fail --silent --output /dev/null http://localhost:3030/; then break; fi
             sleep 1
           done
-          node ../../scripts/check-p01.mjs
+          node check-p01.mjs
