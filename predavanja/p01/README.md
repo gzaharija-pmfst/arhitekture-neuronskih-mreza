@@ -4,14 +4,14 @@ Urediva prezentacija izrađena prema postojećem **Predavanju 01**, uz nužne sa
 
 ## Pokretanje
 
-Preduvjet je **Node.js 22.12.0 ili noviji** (preporuka: aktualni Node.js 22 LTS). Provjera:
+Preduvjet je **Node.js 22.18.0 ili noviji** (preporuka: ažurirani Node.js 22 LTS ili noviji). Paket `ast-walker-scope` među neizravnim ovisnostima zahtijeva barem Node.js 22.18.0. Provjera:
 
 ```bash
 node --version
 npm --version
 ```
 
-Ako `node --version` ispisuje 18.x, 20.x ili verziju 22 stariju od 22.12, najprije ažurirajte Node.js. `@slidev/cli` je zaključan na `53.0.0`, a tema na `0.25.0`.
+Ako `node --version` ispisuje 18.x, 20.x ili verziju 22 stariju od 22.18, najprije ažurirajte Node.js. `@slidev/cli` je zaključan na `53.0.0`, a tema na `0.25.0`.
 
 Iz **korijena mape `predavanja/p01`** (ne iz korijena repozitorija):
 
