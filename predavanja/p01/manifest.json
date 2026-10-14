@@ -181,16 +181,22 @@
   },
   {
     "slide": 37,
+    "title": "Live demo — prag klasifikacije",
+    "source_slide": 29,
+    "kind": "interactive_demo"
+  },
+  {
+    "slide": 38,
     "title": "Što smo ponovili?",
     "source_slide": 31
   },
   {
-    "slide": 38,
+    "slide": 39,
     "title": "Nastavak: neuronske mreže",
     "source_slide": 31
   },
   {
-    "slide": 39,
+    "slide": 40,
     "title": "HVALA NA PAŽNJI!",
     "source_slide": 32
   }
