@@ -43,6 +43,19 @@ try {
     const visible = !!(report?.slideNumber === String(slide).padStart(2, '0') && report.slideBox?.width > 200)
     console.log('SLIDE_PROBE ' + slide + ' ' + JSON.stringify({ visible, ...report }))
     if (!visible) failed = true
+    if (slide === 36 && visible) {
+      const getReveal = () => page.evaluate(() => {
+        const active = [...document.querySelectorAll('.anm')].find(e => e.getBoundingClientRect().width > 200 && e.querySelector('.slide-n')?.textContent?.trim() === '36')
+        const el = [...(active?.querySelectorAll('.panel') || [])].find(e => e.textContent.includes('Rješenje (otkrij klikom)'))
+        return el ? { className: el.className, opacity: getComputedStyle(el).opacity, visibility: getComputedStyle(el).visibility } : null
+      })
+      const before = await getReveal()
+      await page.keyboard.press('ArrowRight')
+      await new Promise(resolve => setTimeout(resolve, 500))
+      const after = await getReveal()
+      console.log('REVEAL_36 ' + JSON.stringify({ before, after }))
+      if (!before || !after || Number(after.opacity) <= Number(before.opacity)) failed = true
+    }
     if (slide === 37 && visible) {
       const metrics = await page.evaluate(() => {
         const el = [...document.querySelectorAll('.anm')].find(e => e.getBoundingClientRect().width > 200)
