@@ -24,10 +24,24 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "22.12.0"
+          node-version: "22.18.0"
       - name: Verify Node version
         run: node --version
       - name: Install dependencies
         run: npm install --no-fund
       - name: Build Slidev presentation
         run: npm run build
+      - name: Smoke test Slidev dev server
+        run: |
+          npm run dev -- --port 3030 > /tmp/anm-p01-slidev.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl --fail --silent --output /tmp/anm-p01-page.html http://127.0.0.1:3030/; then
+              echo "Slidev dev server served HTTP 200"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/anm-p01-slidev.log
+          exit 1
